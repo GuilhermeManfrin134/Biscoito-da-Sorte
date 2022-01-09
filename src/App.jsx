@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import Button from './components/Button';
+import Img from './components/Img';
+import Frase from './components/Frase';
 
 import './App.css';
 
@@ -21,16 +23,16 @@ class App extends Component {
     let state = this.state;
     let number = Math.floor(Math.random() * this.frases.length)
 
-    state.textoFrase = this.frases[number];
+    state.textoFrase = '" ' + this.frases[number] + ' "';
     this.setState(state)
   }
 
   render(){
     return (
-      <div>
-        <img src={require('./assets/biscoito.png')}/>
+      <div className='container'>
+        <Img />
         <Button conteudo='Abrir Biscoito' acaoBtn={this.quebraBiscoito}/>
-        <h3>{this.state.textoFrase}</h3>
+        <Frase textoFrase={this.state.textoFrase}/>
       </div>
     );
   }
